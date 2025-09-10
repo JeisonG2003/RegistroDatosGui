@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Información básica del proyecto -->
+    <groupId>com.jeison</groupId>  <!-- Identificador único del proyecto -->
+    <artifactId>RegistroDatosGui</artifactId>  <!-- Nombre del proyecto -->
+    <version>1.0-SNAPSHOT</version> <!-- Versión del proyecto -->
+    <packaging>jar</packaging>  <!-- Tipo de empaquetado (archivo JAR) -->
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source> <!-- Versión de Java -->
+        <maven.compiler.target>17</maven.compiler.target> <!-- Versión de Java -->
+    </properties>
+
+    <!-- Dependencias -->
+    <dependencies>
+        <!-- No es necesario agregar dependencias adicionales para Swing -->
+    </dependencies>
+
+    <!-- Configuración de los plugins -->
+    <build>
+        <plugins>
+            <!-- Plugin para compilar el código Java -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+
+            <!-- Plugin para ejecutar la clase principal -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>gui_basica.AplicacionGUI</mainClass> <!-- Clase principal -->
+                </configuration>
+            </plugin>
+
+            <!-- Plugin para empaquetar el proyecto como un JAR ejecutable -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Main-Class>gui_basica.AplicacionGUI</Main-Class> <!-- Clase principal -->
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
